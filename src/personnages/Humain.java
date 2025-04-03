@@ -5,13 +5,12 @@ public class Humain {
 	private String boissonFavorite;
 	private int argent;
 
-	
-	public int getArgent() {
-		return argent;
+	public String getNom() {
+		return nom;
 	}
 
-	public void setArgent(int argent) {
-		this.argent = argent;
+	public int getArgent() {
+		return argent;
 	}
 
 	public Humain(String nom, String boissonFavorite, int Argent) {
@@ -37,29 +36,23 @@ public class Humain {
 		parler("Mmmm, un bon verre de " + boissonFavorite + " ! GLOUPS !");
 	}
 
-	private void gagnerArgent(int gain) {
+	protected void gagnerArgent(int gain) {
 		argent += gain;
 	}
 
-	private void perdreArgent(int perte) {
+	protected void perdreArgent(int perte) {
 		argent -= perte;
 	}
 
 	public void acheter(String bien, int prix) {
-	   if ( prix <= argent) 
-	   {
-       parler("J'ai " + argent + " sous en poche. Je vais pouvoir m'offrir "+ bien +  "à " + prix + " sous.");
-       perdreArgent(prix);  }
-	   else {
-		   parler("Je n'ai plus que " + argent + " sous en poche. Je ne peux même pas m'offrir " + bien + " à " + prix + " sous.");
-	   }
-	   
+		if (prix <= argent) {
+			parler("J'ai " + argent + " sous en poche. Je vais pouvoir m'offrir " + bien + "à " + prix + " sous.");
+			perdreArgent(prix);
+		} else {
+			parler("Je n'ai plus que " + argent + " sous en poche. Je ne peux même pas m'offrir " + bien + " à " + prix
+					+ " sous.");
+		}
+
 	}
-	
-	
+
 }
-	   
-	   
-
-	
-
